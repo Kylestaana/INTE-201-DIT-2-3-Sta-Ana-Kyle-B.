@@ -1,0 +1,69 @@
+package com.mycompany.java_operators;
+
+/**
+ *
+ * @author kyles
+ */
+public class Java_Operators_Advanced {
+    public static void main(String[] args) {
+        
+        // ==========================================
+        // REQUIREMENT 1: Compound Assignment Growth
+        // ==========================================
+        System.out.println("--- COMPOUND GROWTH OVER TIME ---");
+        double balance = 1000.0; // Initial balance
+        System.out.println("Initial Balance: $" + balance);
+
+        // Step 1: Add bonus using +=
+        balance += 250.0;
+        System.out.println("After adding bonus (+= 250.0): $" + balance);
+
+        // Step 2: Apply interest growth using *=
+        balance *= 1.05; // 5% growth
+        System.out.println("After applying 5% interest (*= 1.05): $" + balance);
+
+        // Step 3: Add deposit using +=
+        balance += 500.0;
+        System.out.println("After adding final deposit (+= 500.0): $" + balance);
+        System.out.println();
+
+
+        // ==========================================
+        // REQUIREMENT 2: Postfix Increment (count++)
+        // ==========================================
+        System.out.println("--- POSTFIX INCREMENT (count++) ---");
+        int count = 5;
+        System.out.println("Initial count: " + count);
+        
+        // count++ uses the current value first, THEN increments it
+        System.out.println("Printing inside println with count++: " + count++); // Prints 5
+        System.out.println("Printing count immediately after: " + count);       // Prints 6
+        System.out.println();
+
+
+        // ==========================================
+        // REQUIREMENT 3: Prefix Increment (++count)
+        // ==========================================
+        System.out.println("--- PREFIX INCREMENT (++count) ---");
+        int counter = 5;
+        System.out.println("Initial counter: " + counter);
+
+        // ++counter increments the value FIRST, then uses the new value
+        System.out.println("Printing inside println with ++counter: " + ++counter); // Prints 6
+        System.out.println("Printing counter immediately after: " + counter);       // Prints 6
+
+        /*
+         * EXPLANATION: Why do post-fix and pre-fix values differ?
+         * 
+         * 1. Postfix (count++): The compiler evaluates the statement using the 
+         *    original value (5) for the print operation first, and only updates 
+         *    the variable's memory afterward. That's why the first print shows 5, 
+         *    but the subsequent print shows 6.
+         * 
+         * 2. Prefix (++count): The compiler immediately updates the variable's value 
+         *    in memory first (making it 6), and then passes that updated value 
+         *    directly into the print statement. That's why both prints show 6.
+         */
+    }
+}
+
