@@ -1,0 +1,104 @@
+package com.mycompany.arrays;
+
+/**
+ *
+ * @author kyles
+ */
+
+public class Arrays_Expert {
+
+    // 1. Create a Student class with a name and quizzes array holding at least 4 scores each[cite: 14]
+    static class Student {
+        String name;
+        int[] quizzes;
+        double average;
+
+        public Student(String name, int[] quizzes) {
+            this.name = name;
+            this.quizzes = quizzes;
+            this.average = calculateAverage();
+        }
+
+        private double calculateAverage() {
+            int sum = 0;
+            for (int score : quizzes) {
+                sum += score;
+            }
+            return (double) sum / quizzes.length;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("--- CLASS RANKING SYSTEM ---");
+
+        // 2. Build an array of Student objects from a 2D array of raw quiz data[cite: 14]
+        String[] names = {"Alice", "Bob", "Charlie", "Diana", "Evan"};
+        int[][] rawQuizData = {
+            {85, 90, 88, 92}, // Alice
+            {70, 75, 80, 78}, // Bob
+            {95, 92, 96, 98}, // Charlie
+            {85, 90, 88, 92}, // Diana (Tied with Alice for testing tie handling)
+            {60, 65, 70, 68}  // Evan
+        };
+
+        Student[] students = new Student[names.length];
+        for (int i = 0; i < names.length; i++) {
+            students[i] = new Student(names[i], rawQuizData[i]);
+        }
+
+        // 3. Write your OWN sort algorithm (no Arrays.sort()) to rank students by average[cite: 14]
+        // Using Bubble Sort to sort in descending order (highest average first)
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = 0; j < students.length - i - 1; j++) {
+                if (students[j].average < students[j + 1].average) {
+                    Student temp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = temp;
+                }
+            }
+        }
+
+        // 4. Print a formatted leaderboard and correctly handle ties[cite: 14]
+        System.out.println("\n--- CLASS LEADERBOARD ---");
+        System.out.printf("%-6s | %-14s | %-8s\n", "Rank", "Student Name", "Average");
+        System.out.println("---------------------------------------");
+
+        int displayRank = 1;
+        for (int i = 0; i < students.length; i++) {
+            // Handle ties: if current average equals previous student's average, keep the same rank
+            if (i > 0 && students[i].average == students[i - 1].average) {
+                // displayRank remains the same as previous row
+            } else {
+                displayRank = i + 1;
+            }
+
+            System.out.printf("%-6d | %-14s | %-8.2f\n", displayRank, students[i].name, students[i].average);
+        }
+
+        // 5. Write your OWN linear search returning a student's rank[cite: 14]
+        String targetStudent = "Diana";
+        int foundRank = findStudentRank(students, targetStudent);
+
+        System.out.println("\n--- SEARCH RESULT ---");
+        if (foundRank != -1) {
+            System.out.println("Student '" + targetStudent + "' is at Leaderboard Rank: " + foundRank);
+        } else {
+            System.out.println("Student '" + targetStudent + "' was not found.");
+        }
+    }
+
+    // Custom linear search returning a student's rank (accounting for ties)
+    public static int findStudentRank(Student[] students, String targetName) {
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].name.equalsIgnoreCase(targetName)) {
+                // Find the top rank position for this score group in case of ties
+                for (int j = 0; j <= i; j++) {
+                    if (students[j].average == students[i].average) {
+                        return j + 1;
+                    }
+                }
+            }
+        }
+        return -1; // Not found
+    }
+}
