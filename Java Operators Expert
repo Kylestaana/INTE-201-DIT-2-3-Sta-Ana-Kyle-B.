@@ -1,0 +1,70 @@
+package com.mycompany.java_operators;
+
+/**
+ *
+ * @author kyles
+ */
+public class Java_Operators_Expert {
+    public static void main(String[] args) {
+        
+        // ==========================================
+        // PUZZLE 1: Arithmetic, Relational, Increment, & Logical AND
+        // ==========================================
+        int a = 5;
+        
+        // PREDICTED: true
+        // Explanation check: ++a makes a=6. 6 * 2 = 12 (> 10 is true). 
+        // a - 1 = 5 (== 5 is true). true && true evaluates to true.
+        boolean result1 = ++a * 2 > 10 && a - 1 == 5;
+        
+        System.out.println("--- PUZZLE 1 ---");
+        System.out.println("Actual Result: " + result1);
+        System.out.println();
+
+
+        // ==========================================
+        // PUZZLE 2: Arithmetic, Postfix Increment, Relational, & Logical (&& vs ||)
+        // ==========================================
+        int x = 10; 
+        int y = 20;
+
+        // PREDICTED: false
+        // Explanation check: && has higher precedence than ||. 
+        // Left side: (10 + 5 > 20) -> false.
+        // Right side: (x++ < 10) evaluates 10 < 10 (false) and increments x to 11. 
+        // Because of short-circuiting with &&, the second part isn't evaluated. 
+        // false || false results in false.
+        boolean result2 = x + 5 > y || x++ < 10 && y - 5 == 15;
+
+        System.out.println("--- PUZZLE 2 ---");
+        System.out.println("Actual Result: " + result2);
+        System.out.println();
+
+
+        // ==========================================
+        // PUZZLE 3: Prefix/Postfix, Arithmetic, Relational, & Logical NOT/OR
+        // ==========================================
+        int m = 4; 
+        int n = 3;
+
+        // PREDICTED: true
+        // Explanation check: 
+        // Left of ||: --m (m=3) + (3 * 2 = 6) = 9. (9 >= 10) is false.
+        // Right of ||: !(n++ > 3). n is 3, so (3 > 3) is false, and n becomes 4. 
+        // Applying ! gives true. false || true evaluates to true.
+        boolean result3 = --m + n * 2 >= 10 || !(n++ > 3);
+
+        System.out.println("--- PUZZLE 3 ---");
+        System.out.println("Actual Result: " + result3);
+
+        /*
+         * PRECEDENCE SUMMARY REMINDER:
+         * 1. Unary/Increment/Decrement (++, --, !)
+         * 2. Arithmetic (*, /, %, then +, -)
+         * 3. Relational (<, >, <=, >=, ==, !=)
+         * 4. Logical AND (&&)
+         * 5. Logical OR (||)
+         */
+    }
+}
+
