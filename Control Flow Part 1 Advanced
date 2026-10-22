@@ -1,0 +1,69 @@
+package com.mycompany.control_flow_part_1;
+
+/**
+ *
+ * @author kyles
+ */
+public class Control_Flow_Part_1_Advanced {
+    public static void main(String[] args) {
+        // Valid system credentials for testing
+        String correctUsername = "adminUser";
+        String correctPassword = "securePassword123";
+        boolean isAccountLocked = false;
+
+        // ==========================================
+        // TEST PATH 1: Successful Login
+        // ==========================================
+        System.out.println("--- TEST 1: SUCCESSFUL LOGIN ---");
+        runLoginCheck("adminUser", "securePassword123", false, correctUsername, correctPassword, isAccountLocked);
+
+        // ==========================================
+        // TEST PATH 2: Wrong Username Failure (Stage 1)
+        // ==========================================
+        System.out.println("\n--- TEST 2: WRONG USERNAME ---");
+        runLoginCheck("badUser", "securePassword123", false, correctUsername, correctPassword, isAccountLocked);
+
+        // ==========================================
+        // TEST PATH 3: Wrong Password Failure (Stage 2)
+        // ==========================================
+        System.out.println("\n--- TEST 3: WRONG PASSWORD ---");
+        runLoginCheck("adminUser", "wrongPassword", false, correctUsername, correctPassword, isAccountLocked);
+
+        // ==========================================
+        // TEST PATH 4: Account Locked Failure (Stage 3)
+        // ==========================================
+        System.out.println("\n--- TEST 4: ACCOUNT LOCKED ---");
+        runLoginCheck("adminUser", "securePassword123", true, correctUsername, correctPassword, isAccountLocked);
+    }
+
+    // Helper method implementing the tiered nested validation logic
+    public static void runLoginCheck(String inputUser, String inputPass, boolean inputLocked, 
+                                     String validUser, String validPass, boolean validLocked) {
+        
+        System.out.println("Input -> User: " + inputUser + " | Pass: " + inputPass + " | Locked: " + inputLocked);
+
+        // Stage 1: Check username first[cite: 5]
+        if (inputUser.equals(validUser)) {
+            
+            // Stage 2: Only if username matches, check password inside a nested if[cite: 5]
+            if (inputPass.equals(validPass)) {
+                
+                // Stage 3: Only if BOTH match, check the third condition (account is not locked)[cite: 5]
+                if (!inputLocked) {
+                    System.out.println("Result: SUCCESS - Login granted!");
+                } else {
+                    // Specific failure message for locked account
+                    System.out.println("Result: FAILURE - Account is locked.");
+                }
+                
+            } else {
+                // Specific failure message for wrong password
+                System.out.println("Result: FAILURE - Incorrect password.");
+            }
+            
+        } else {
+            // Specific failure message for wrong username
+            System.out.println("Result: FAILURE - Username not found.");
+        }
+    }
+}
