@@ -1,0 +1,35 @@
+package com.mycompany.java_operators;
+
+/**
+ *
+ * @author kyles
+ */
+public class Java_Operators_Intermediate {
+    public static void main(String [] Args){
+        // ==========================================
+        // PART 4: Logical Operators & Passing Criteria
+        // ==========================================
+        System.out.println("--- PART 4: STUDENT PASS/FAIL CHECK ---");
+        double averageGrade = 82.5;
+        int absences = 2;
+
+        System.out.println("Student Average: " + averageGrade);
+        System.out.println("Student Absences: " + absences);
+
+        // Using && and || with parentheses according to the rules
+        boolean isPassing = (averageGrade >= 75 && absences <= 3) || (averageGrade >= 90);
+
+        if (isPassing) {
+            System.out.println("Status: PASS");
+            if (averageGrade >= 90) {
+                System.out.println("Reasoning: Passed because the average is 90 or higher (" + averageGrade + "), regardless of absences.");
+            } else {
+                System.out.println("Reasoning: Passed because the average is at least 75 (" + averageGrade + ") AND absences are 3 or fewer (" + absences + ").");
+            }
+        } else {
+            System.out.println("Status: FAIL");
+            System.out.println("Reasoning: Failed because average is below 75 and absences exceeded the limit.");
+        }
+        
+    }
+}
