@@ -1,0 +1,76 @@
+package com.mycompany.java_operators;
+
+/**
+ *
+ * @author kyles
+ */
+public class Java_Operators_Basic {
+    public static void main(String [] Args){
+        
+        System.out.println("Declaring 2 Integeres: ");
+        
+        int num1 = 10;
+        
+        int num2 = 20;
+        
+        int num3 = -10;
+        
+        int num4 = -20;
+        
+        System.out.println(num1);
+        
+        System.out.println(num2);
+        
+        System.out.println(" ");    
+        
+        System.out.println("Java Operator Samples: ");
+        
+        int add = (num1 + num2);
+        
+        int subtract = (num2 - num1);
+        
+        int multiply = (num1 * num2);
+        
+        int divide = (num2 / num1);
+        
+        int modulus = (num2 % num1);
+        
+        System.out.println(num1 + " + " + num2 + " = " + add );
+        
+        System.out.println(num2 + " - " + num1 + " = " + subtract );
+        
+        System.out.println(num1 + " x " + num2 + " = " + multiply );
+        
+        System.out.println(num2 + " / " + num1 + " = " + divide );
+        
+        System.out.println(num2 + " % " + num1 + " = " + modulus );
+        
+        int addn = (num3 + num4);
+        
+        int subtractn = (num4 - num3);
+        
+        int multiplyn = (num3 * num4);
+        
+        int dividen = (num4 / num3);
+        
+        int modulusn = (num4 % num3);
+        
+        System.out.println(num3 + " + " + num4 + " = " + addn );
+        
+        System.out.println(num4 + " - " + num3 + " = " + subtractn );
+        
+        System.out.println(num3 + " x " + num4 + " = " + multiplyn );
+        
+        System.out.println(num4 + " / " + num3 + " = " + dividen );
+        
+        System.out.println(num4 + " % " + num3 + " = " + modulusn );
+    
+        //when negative is introduced to the operators it will not be the same.
+        //in addition if 2 negative numbers are calculated together it will be the same as addition but it has -
+        //negative sign in it. But in subtraction, it will still subtract.
+        //in multiplication however we had a rule where if 2 negatives are multiplied together - 
+        //it will change sign and becomes positive.
+        //same applies in division andS modulus.
+        
+    }
+}
