@@ -1,0 +1,37 @@
+package com.mycompany.control_flow_part_1;
+
+/**
+ *
+ * @author kyles
+ */
+public class Control_Flow_Part_1_Basic {
+    public static void main(String[] args) {
+        
+        // Test Value 1: Passing score
+        int score = 85;
+        
+        System.out.println("--- Test 1 ---");
+        System.out.println("Score: " + score);
+        
+        // Use if-else to classify score as passing (60 or above) or failing[cite: 3]
+        if (score >= 60) {
+            System.out.println("PASSED");
+        } else {
+            System.out.println("FAILED");
+        }
+        
+        System.out.println();
+        
+        // Test Value 2: Failing score (testing by changing the variable)[cite: 3]
+        score = 45;
+        
+        System.out.println("--- Test 2 ---");
+        System.out.println("Score: " + score);
+        
+        if (score >= 60) {
+            System.out.println("PASSED");
+        } else {
+            System.out.println("FAILED");
+        }
+    }
+}
