@@ -4,52 +4,19 @@ package com.mycompany.data_types_and_variables_basic;
  *
  * @author kyles
  */
-public class Data_Types_And_Variables_Advanced {
-    public static void main(String [] Args){
-        
-        //Whole Meters + Centimeters using implicit widening.
-        
-        int WHOLEmeters = 3;
-        
-        double centimeters = .1415;
-        
-        double meters = WHOLEmeters;
-        
-        System.out.print("Whole Meters + Centimeters: ");
-        
-        System.out.println(meters + centimeters); // WHOLE meters (int) converted to double.  
-        
-        // Then add centimeters to it.
-        
-        //Example of Implicit Widening:
-        
-        int sampleint1 = 1;
-        
-        double sampledouble1 = .2345;
-        
-        System.out.print("Implicit Widening Sample: ");
-        
-        System.out.println(sampleint1 + sampledouble1);
-        
-        //No need to cast since the "sampledouble" doesn't contain whole numbes.
-        
-        //Example of Explicit Narrowing:
-    
-        double sampledouble2 = 1.2345;
-        
-        int sampleint2 = (int) sampledouble2;
-        
-        System.out.println("Explicit Narrowing Sample: ");
-        
-        System.out.println(sampleint2);
-        
-        // By type casting the double "sampledouble2" to int we see the data is lost during the conversion.
-        
-        //Why the data is lost? Beecause we simply only prints the integer part of the variable.
-        
-        //But if you want to print only the decimals we can subtract the whole number to its self to get only the decimals.
-        
-        System.out.println(sampledouble2 - sampleint2);
-        
+public class Data_Types_And_Variables_Intermediate {
+    public static void main(String[] Args){
+        int quantity = 0; /*Let's Assume They Wanna Buy Milo Energy Drink*/
+        double unitPrice = 10.5 ; /*Let's Set The Price To 10 But Add Decimal (5) For Double*/
+        double totalCost;
+        String storeName = "Gagayl's Store";
+        System.out.println("Type-Safe Shopping Calculator\n");
+        totalCost = (quantity * unitPrice);
+            System.out.println(storeName);
+        if (quantity == 0)
+            System.out.println("Just Browsing");
+        else
+            System.out.println("Bought " + quantity + " Milo For " + totalCost);
+            
     }
 }
