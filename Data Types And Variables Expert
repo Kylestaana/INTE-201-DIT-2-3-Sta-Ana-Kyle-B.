@@ -1,0 +1,57 @@
+package com.mycompany.data_types_and_variables_basic;
+
+/**
+ *
+ * @author kyles
+ */
+public class Data_Types_And_Variables_Expert {
+    public static void main(String [] Args ){
+        
+        System.out.println("Byte Testing: ");
+        
+        byte maxbyte = 127;
+        
+        maxbyte++;
+        
+        System.out.println(maxbyte);
+        
+        //why maxbyte++ instead of maxbyte + 1?
+        //if you use maxbyte + 1, the system thinks it's a math, so instead of thinking the system that - 
+        //maxbyte is supposed to be a "binary" it then becomes an "integer" so the output will be - 
+        //128 instead of -128, but in binary why (127) maxbyte++ equals to -128?
+        //in java, byte contains only 127 positive number and -128 negative number so,
+        //if you add 1 to that binary it then loops back to -128 since 127 cannot continue more.
+        System.out.println("");
+        System.out.println("(==) vs .equals()");
+        
+        String literalword = ("Java");
+        String word1 = new String ("Java");
+        String word2 = new String ("Java");
+        
+        System.out.println(literalword == word1);
+        System.out.println(literalword .equals(word2));
+        
+        //what's the difference between == operator and the .equals() operator?
+        //based on my understanding here is that the operator "==" looks in the variable - 
+        //while ".equals()" looks INSIDE the variable for example there literalword == word1 the system - 
+        //thinks they're not the same variable so it become false, while literalword .equals(word2) the system then looks -
+        //inside of the variable not the variable itself and since they are the same word ("Java") .equals() will thought - 
+        //that they're the same but if you write different word inside of one of the comparators it will become false
+        
+        System.out.println(" ");
+        
+        System.out.println("Array Sharing: ");
+        
+        int [] originalarray = {10, 20, 30};
+        
+        int [] customarray = originalarray;
+        
+        System.out.println(originalarray[0]);
+        
+        customarray [0] = 999;
+        
+        System.out.println(originalarray[0]);
+        
+        //Array sharing is just the same as type casting but the difference is... its an array.
+    }
+}
