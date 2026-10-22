@@ -1,0 +1,35 @@
+package com.mycompany.control_flow_part_2;
+
+/**
+ *
+ * @author kyles
+ */
+public class Control_Flow_Part_2_Intermediate {
+    public static void main(String[] args) {
+        System.out.println("--- SUM UNTIL SENTINEL VALUE ---");
+        
+        // Test input sequence including a negative number other than -1 (-5) and the sentinel value (-1)
+        int[] inputSequence = {15, -5, 10, -1, 50}; 
+        int runningTotal = 0;
+        int i = 0;
+
+        // Use a while loop that keeps reading integers and adding them to a running total[cite: 9]
+        while (i < inputSequence.length) {
+            int currentVal = inputSequence[i];
+            
+            // Stop reading the instant the value -1 is entered, without including it in the total[cite: 9]
+            if (currentVal == -1) {
+                System.out.println("Sentinel value -1 detected. Terminating loop.");
+                break;
+            }
+            
+            runningTotal += currentVal;
+            System.out.println("Read value: " + currentVal + " | Running Total: " + runningTotal);
+            i++;
+        }
+
+        // Print the final total once the loop ends[cite: 9]
+        System.out.println("--------------------------------");
+        System.out.println("Final Total: " + runningTotal);
+    }
+}
