@@ -1,0 +1,24 @@
+package com.mycompany.arrays;
+
+/**
+ *
+ * @author kyles
+ */
+public class Arrays_Basic {
+    public static void main(String[] args) {
+        System.out.println("--- FAVORITE THINGS ARRAY ---");
+
+        // 1. Declare and initialize a String array with 5 favorite things[cite: 12]
+        String[] favorites = {"Coding", "Pixel Art", "Coffee", "Game Design", "Music"};
+
+        // 2. Print each item numbered (1 through 5) using a loop[cite: 12]
+        System.out.println("My Favorites List:");
+        for (int i = 0; i < favorites.length; i++) {
+            System.out.println((i + 1) + ". " + favorites[i]);
+        }
+
+        // 3. Print the array's total length using .length[cite: 12]
+        System.out.println("--------------------------------");
+        System.out.println("Total Array Length: " + favorites.length);
+    }
+}
