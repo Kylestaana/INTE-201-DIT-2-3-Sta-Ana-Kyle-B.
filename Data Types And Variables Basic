@@ -1,1 +1,24 @@
+package com.mycompany.data_types_and_variables_basic;
+/**
+ *
+ * @author kyles
+ */
+public class Data_Types_And_Variables_Basic {
+    public static void main(String[] args) {
+        int age = 19;
+        double height = 170.18;
+        char B = 'B';
+        boolean status = true;
+        System.out.println("Personal Profile Printer\n");
+        System.out.println("Kyle B. Sta Ana");
+        System.out.println("Age: " + age);
+        System.out.println("Height: " + height);
+        System.out.println("Initial: " + B);
+        
+        if (status)
+            System.out.println("Statues: Single");
+        else 
+            System.out.println("Status: Married");                
+    }
+}
 
