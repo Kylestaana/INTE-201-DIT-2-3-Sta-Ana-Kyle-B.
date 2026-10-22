@@ -1,0 +1,59 @@
+package com.mycompany.arrays;
+import java.util.Arrays;
+
+/**
+ *
+ * @author kyles
+ */
+
+public class Arrays_Advanced {
+    public static void main(String[] args) {
+        System.out.println("--- SEARCH & SORT MINI-TOOL ---");
+
+        // Original scores array
+        int[] scores = {85, 62, 95, 78, 90, 68, 82, 75};
+        int target = 90;
+
+        // ==========================================
+        // 1. Linear Search on the Original Array
+        // ==========================================
+        int foundIndex = -1;
+        for (int i = 0; i < scores.length; i++) {
+            if (scores[i] == target) {
+                foundIndex = i;
+                break;
+            }
+        }
+
+        if (foundIndex != -1) {
+            System.out.println("Target value " + target + " found at index: " + foundIndex);
+        } else {
+            System.out.println("Target value " + target + " was not found in the array.");
+        }
+
+        // ==========================================
+        // 2. Sort a COPY of the Array
+        // ==========================================
+        // Using Arrays.copyOf() creates a separate array in memory
+        int[] sortedScores = Arrays.copyOf(scores, scores.length);
+        Arrays.sort(sortedScores);
+
+        // Print both the original and sorted versions
+        System.out.println("\nOriginal Array:       " + Arrays.toString(scores));
+        System.out.println("Sorted Copy of Array: " + Arrays.toString(sortedScores));
+
+        /*
+         * EXPLANATION: Why does sorting a copy (rather than the original) matter here?
+         * 
+         * 1. Preserving Index Integrity: If we had already performed a linear search 
+         *    (or relied on original indices for student records), sorting the original 
+         *    array in place would shuffle all the elements around. Any previously recorded 
+         *    index references would suddenly point to completely different data.
+         * 
+         * 2. Data Safety: In larger applications, original input data often needs to 
+         *    stay in its exact ingestion order for logging, chronological tracking, or 
+         *    other dependent modules. Creating a copy allows us to safely sort and view 
+         *    the data without disrupting the source of truth.
+         */
+    }
+}
