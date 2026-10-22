@@ -1,0 +1,40 @@
+package com.mycompany.control_flow_part_1;
+
+/**
+ *
+ * @author kyles
+ */
+public class Control_Flow_Part_1_Intermediate {
+    public static void main(String[] args) {
+        
+        // 1. Declare the purchaseAmount variable[cite: 4]
+        double purchaseAmount = 350.00; // You can change this value to test different tiers
+        double discountPercentage = 0.0;
+        String discountTier = "";
+
+        // 2. Use an else-if ladder with at least 4 branches[cite: 4]
+        // Ordered from highest to lowest so ranges remain mutually exclusive and reachable
+        if (purchaseAmount >= 500.0) {
+            discountPercentage = 0.15; // 15% discount
+            discountTier = "15%";
+        } else if (purchaseAmount >= 300.0) {
+            discountPercentage = 0.10; // 10% discount
+            discountTier = "10%";
+        } else if (purchaseAmount >= 100.0) {
+            discountPercentage = 0.05; // 5% discount
+            discountTier = "5%";
+        } else {
+            discountPercentage = 0.0;  // 0% discount
+            discountTier = "0% (No Discount)";
+        }
+
+        // Calculate final discounted price
+        double finalPrice = purchaseAmount - (purchaseAmount * discountPercentage);
+
+        // 3. Print the assigned discount tier and final discounted price[cite: 4]
+        System.out.println("--- MULTI-TIER DISCOUNT SYSTEM ---");
+        System.out.println("Original Purchase Amount: $" + purchaseAmount);
+        System.out.println("Assigned Discount Tier:   " + discountTier);
+        System.out.println("Final Discounted Price:   $" + finalPrice);
+    }
+}
